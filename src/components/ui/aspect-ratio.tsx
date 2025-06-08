@@ -100,5 +100,6 @@ const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
 
 AspectRatio.displayName = 'AspectRatio';
 
-// Export the component only once
+// Export the component and type separately
 export { AspectRatio };
+export type { AspectRatio as AspectRatioType };
