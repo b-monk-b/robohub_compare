@@ -1,4 +1,4 @@
-import { Toaster } from '@/components/ui/Toaster';
+import { Toaster } from '@/components/ui/toast';
 
 export default function ComponentsDemoLayout({
   children,
