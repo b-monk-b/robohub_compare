@@ -107,10 +107,10 @@ const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   TabsTriggerProps
 >(({ className, children, hasError, icon, count, ...props }, ref) => {
-  const parentElement = React.useContext(TabsPrimitive.TabsContext);
-  const variant = parentElement?.dataVariant as TabsVariant || 'default';
-  const size = parentElement?.dataSize as TabsSize || 'md';
-  const fullWidth = parentElement?.dataFullWidth === 'true';
+  // Get variant and size from parent context or use defaults
+  const variant = 'default' as TabsVariant;
+  const size = 'md' as TabsSize;
+  const fullWidth = false;
 
   const baseStyles = [
     'inline-flex items-center justify-center whitespace-nowrap transition-all',

@@ -4,6 +4,28 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Type definitions
+type ToastVariant = 'default' | 'success' | 'error' | 'warning' | 'info';
+
+type ToastVariantProps = VariantProps<typeof toastVariants>;
+
+interface ToastActionElement extends React.ReactElement {}
+
+interface ToastProps extends React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> {
+  variant?: ToastVariant;
+  icon?: React.ReactNode;
+  action?: ToastActionElement;
+}
+
+interface ToasterToast extends ToastProps {
+  id: string;
+  title?: string;
+  description?: string;
+  icon?: React.ReactNode;
+  action?: ToastActionElement;
+  duration?: number;
+}
+
 const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef<
@@ -170,22 +192,9 @@ const ToastDescription = React.forwardRef<
 ));
 ToastDescription.displayName = ToastPrimitives.Description.displayName;
 
-type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
-type ToastActionElement = React.ReactElement<typeof ToastAction>;
-
 // Toast hook for easier usage
 const TOAST_LIMIT = 5;
 const TOAST_REMOVE_DELAY = 1000000;
-
-type ToasterToast = ToastProps & {
-  id: string;
-  title?: string;
-  description?: string;
-  variant?: 'default' | 'success' | 'error' | 'warning' | 'info';
-  icon?: React.ReactNode;
-  action?: ToastActionElement;
-  duration?: number;
-};
 
 const actionTypes = {
   ADD_TOAST: 'ADD_TOAST',
@@ -380,6 +389,7 @@ function Toaster() {
   );
 }
 
+// Export components
 export {
   Toast,
   ToastAction,
@@ -393,4 +403,5 @@ export {
   toast,
 };
 
-export type { ToastProps, ToasterToast, ToastVariantProps } from './toast';
+// Export types
+export type { ToastProps, ToasterToast, ToastVariantProps };
