@@ -107,10 +107,15 @@ const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   TabsTriggerProps
 >(({ className, children, hasError, icon, count, ...props }, ref) => {
-  // Get variant and size from parent context or use defaults
+  // Since TabsContext is not available in the current version of Radix UI,
+  // we'll use default values for variant, size, and fullWidth
+  // In a real implementation, these would be passed down from the parent component
   const variant = 'default' as TabsVariant;
   const size = 'md' as TabsSize;
   const fullWidth = false;
+  
+  // To properly implement this, you would need to modify the Tabs component to pass these values
+  // as props to TabsTrigger instead of relying on context
 
   const baseStyles = [
     'inline-flex items-center justify-center whitespace-nowrap transition-all',

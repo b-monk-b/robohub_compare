@@ -1,6 +1,7 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
+// Define the AspectRatio type
 type AspectRatio = '1/1' | '4/3' | '16/9' | '21/9' | '3/4' | '9/16' | '9/21' | 'custom';
 
 export interface AspectRatioProps extends HTMLAttributes<HTMLDivElement> {
@@ -99,4 +100,5 @@ const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(
 
 AspectRatio.displayName = 'AspectRatio';
 
+// Export the component only once
 export { AspectRatio };
